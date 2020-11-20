@@ -34,9 +34,10 @@ router.post('/', async (req, res) => {
 
 // @routes GET api/posts/:id
 // @desc get a post
-router.get('/:id', async(req, res) => {
+router.get('/:_id', async(req, res) => {
     try {
-        const post = await Posts.findById(req.params.id)
+        const objectId = req.params._id
+        const post = await Posts.findById({ "_id": objectId })
         if(!post) throw Error("No post found")
         res.status(200).json(post)
     } catch(err) {
@@ -46,9 +47,10 @@ router.get('/:id', async(req, res) => {
 
 // @routes DELETE api/posts/:id
 // @desc Delete a post
-router.delete('/:id', async(req, res) => {
+router.delete('/:_id', async(req, res) => {
     try {
-        const posts = await Posts.findByIdAndDelete(req.params.id)
+        const objectId = req.params._id
+        const posts = await Posts.findByIdAndDelete({ "_id": objectId })
         if(!posts) throw Error("No post found")
         res.status(200).json({ success: true })
     } catch(err) {
@@ -58,9 +60,10 @@ router.delete('/:id', async(req, res) => {
 
 // @routes UPDATE api/posts/:id
 // @desc update a post
-router.patch('/:id', async(req, res) => {
+router.patch('/:_id', async(req, res) => {
     try {
-        const posts = await Posts.findByIdAndUpdate(req.params.id, req.body)
+        const objectId = req.params._id
+        const posts = await Posts.findByIdAndUpdate({ "_id": objectId }, req.body)
         if(!posts) throw Error("Error when updatating the post")
         res.status(200).json({ success: true })
     } catch(err) {

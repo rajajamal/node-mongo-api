@@ -30,3 +30,5 @@ app.use('/api/posts', postsRoutes)
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => console.log(`server run at port ${PORT}`))
+
+module.exports = app
