@@ -5,4 +5,8 @@ This project is an implementation of testing and documenting your API's using Sw
 How to setup
 
 1. Clone or download this repo
-2.
+2. cd node-mongo-api
+3. Install all the dependencies 'npm install --save'
+4. run server with 'npm run dev'
+5. run test with 'npm run test'
+
