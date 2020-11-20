@@ -6,6 +6,38 @@ const connetDB = require ('./config/db')
 
 const app = express()
 
+// Swagger
+const swaggerJsonDoc = require ('swagger-jsdoc')
+const swaggerUI = require ('swagger-ui-express')
+
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: "Documenting REST API's With Node JS and MongoDB",
+            description: "This is an implementation of how to document your RESTful API's using SWAGGER",
+            servers: ['http://localhost:3000']
+        },
+        "components": {
+            "schemas": {
+                "Post": {
+                    "properties": {
+                        "title": {
+                            "type": "string", "required": true
+                        },
+                        "author": {
+                            "type": "string", "required": true
+                        },
+                        "body": {
+                            "type": "string", "required": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    apis: ['./routes/api/post.js']
+}
+
 // BodyParser Middleware
 app.use(express.json())
 
@@ -24,6 +56,9 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/posts', postsRoutes)
+
+const swaggerDocs = swaggerJsonDoc(swaggerOptions)
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs))
 
 
 
