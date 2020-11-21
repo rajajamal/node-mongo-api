@@ -8,7 +8,7 @@ How to setup
 1. Clone or download this repo
 2. cd node-mongo-api
 3. Install all the dependencies 'npm install --save'
-4. Put your URL MongDB connection in .env file or you can use 'mongodb://localhost:27017'
+4. Put your URL MongoDB connection in .env file or you can use 'mongodb://localhost:27017'
 5. run server with 'npm run dev'
 6. run test with 'npm run test'
 
