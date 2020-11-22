@@ -9,8 +9,9 @@ How to setup
 2. cd node-mongo-api
 3. Install all the dependencies 'npm install --save'
 4. Put your URL MongoDB connection in .env file or you can use 'mongodb://localhost:27017'
-5. run server with 'npm run dev'
-6. run test with 'npm run test'
+5. run server with 'npm run start'
+6. Open http://localhost:3000/api/posts or http://localhost:3000/api-docs/ for SwaggerUI.
+7. run test with 'npm run test'
 
 Postman test collection
 https://www.getpostman.com/collections/b6c5b2fc7d34cab7777d
